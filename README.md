@@ -34,14 +34,13 @@ Example response:
   "status": "healthy",
   "message": "Iris API running"
 }
-2. Predict a single flower
-POST /predict
+```
+---
+### 2. Predict a single flower
+`POST /predict`
 
-Request body:
+```json
 
-json
-Copy
-Edit
 {
   "sepal_length": 5.1,
   "sepal_width": 3.5,
@@ -50,35 +49,34 @@ Edit
 }
 Response:
 
-json
-Copy
-Edit
+
+```json
+
 {
   "prediction": "setosa",
   "confidence": 0.99
 }
-3. Model info
-GET /model-info
+```
+### 3. Model info
+`GET /model-info`
 
 Example response:
 
-json
-Copy
-Edit
+
+```json
 {
   "model_type": "LogisticRegression (with StandardScaler)",
   "features": ["sepal_length","sepal_width","petal_length","petal_width"],
   "class_names": ["setosa","versicolor","virginica"],
   "metrics": {"accuracy": 0.9667}
 }
-4. Bonus: Batch prediction
-POST /predict-batch
+```
+### 4. Bonus: Batch prediction
+`POST /predict-batch`
 
 Request:
+```json
 
-json
-Copy
-Edit
 {
   "items": [
     {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2},
@@ -87,21 +85,19 @@ Edit
 }
 Response:
 
-json
-Copy
-Edit
+```json
+
 {
   "predictions": [
     {"prediction": "setosa", "confidence": 0.99},
     {"prediction": "virginica", "confidence": 0.97}
   ]
 }
-🚀 How to Run the Application
+```
+### 🚀 How to Run the Application
 Setup environment
 
-bash
-Copy
-Edit
+```bash
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # Linux/Mac: source .venv/bin/activate
@@ -109,17 +105,15 @@ pip install --upgrade pip
 pip install -r requirements.txt
 Generate dataset
 
-bash
-Copy
-Edit
+```bash
+
 python make_dataset.py
 This creates data/iris.csv.
 
 Train the model
 
-bash
-Copy
-Edit
+```bash
+
 python train_model.py
 This creates:
 
@@ -129,9 +123,8 @@ model_meta.json (metadata)
 
 Start FastAPI server
 
-bash
-Copy
-Edit
+```bash
+
 uvicorn main:app --reload
 Server will be available at:
 👉 http://127.0.0.1:8000
@@ -162,14 +155,13 @@ model.pkl + model_meta.json → trained model & metadata
 
 Dataset: data/iris.csv
 
-📊 Project Workflow
-pgsql
-Copy
-Edit
+### 📊 Project Workflow
+```pgsql
+
 Dataset (iris.csv) → Training (train_model.py) → Model (model.pkl + meta.json)
        ↓
    FastAPI (main.py)
        ↓
  REST Endpoints (predict, model-info, etc.)
        ↓
-     User / Client
+     User / Client correct this markdown
