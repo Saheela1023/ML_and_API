@@ -35,21 +35,28 @@ Example response:
   "message": "Iris API running"
 }
 
+---
+
 ### 2. Predict a single flower
-`POST /predict`  
+
+`POST /predict`
 
 Request body:
-```json
+
 {
   "sepal_length": 5.1,
   "sepal_width": 3.5,
   "petal_length": 1.4,
   "petal_width": 0.2
 }
+
+
 Response:
 
 {
   "prediction": "setosa",
   "confidence": 0.99
 }
+
+
 
