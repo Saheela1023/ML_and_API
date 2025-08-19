@@ -47,9 +47,8 @@ Example response:
   "petal_length": 1.4,
   "petal_width": 0.2
 }
+```
 Response:
-
-
 ```json
 
 {
