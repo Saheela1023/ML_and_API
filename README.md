@@ -34,14 +34,14 @@ Example response:
   "status": "healthy",
   "message": "Iris API running"
 }
-
 2. Predict a single flower
 POST /predict
 
 Request body:
 
 json
-
+Copy
+Edit
 {
   "sepal_length": 5.1,
   "sepal_width": 3.5,
@@ -51,7 +51,8 @@ json
 Response:
 
 json
-
+Copy
+Edit
 {
   "prediction": "setosa",
   "confidence": 0.99
@@ -62,6 +63,8 @@ GET /model-info
 Example response:
 
 json
+Copy
+Edit
 {
   "model_type": "LogisticRegression (with StandardScaler)",
   "features": ["sepal_length","sepal_width","petal_length","petal_width"],
@@ -74,7 +77,8 @@ POST /predict-batch
 Request:
 
 json
-
+Copy
+Edit
 {
   "items": [
     {"sepal_length": 5.1, "sepal_width": 3.5, "petal_length": 1.4, "petal_width": 0.2},
@@ -84,7 +88,8 @@ json
 Response:
 
 json
-
+Copy
+Edit
 {
   "predictions": [
     {"prediction": "setosa", "confidence": 0.99},
@@ -95,6 +100,8 @@ json
 Setup environment
 
 bash
+Copy
+Edit
 python -m venv .venv
 # Windows: .venv\Scripts\activate
 # Linux/Mac: source .venv/bin/activate
@@ -103,12 +110,16 @@ pip install -r requirements.txt
 Generate dataset
 
 bash
+Copy
+Edit
 python make_dataset.py
 This creates data/iris.csv.
 
 Train the model
 
 bash
+Copy
+Edit
 python train_model.py
 This creates:
 
@@ -119,6 +130,8 @@ model_meta.json (metadata)
 Start FastAPI server
 
 bash
+Copy
+Edit
 uvicorn main:app --reload
 Server will be available at:
 👉 http://127.0.0.1:8000
@@ -151,7 +164,8 @@ Dataset: data/iris.csv
 
 📊 Project Workflow
 pgsql
-
+Copy
+Edit
 Dataset (iris.csv) → Training (train_model.py) → Model (model.pkl + meta.json)
        ↓
    FastAPI (main.py)
@@ -159,6 +173,3 @@ Dataset (iris.csv) → Training (train_model.py) → Model (model.pkl + meta.jso
  REST Endpoints (predict, model-info, etc.)
        ↓
      User / Client
-
-
-
