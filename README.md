@@ -34,6 +34,7 @@ Example response:
   "status": "healthy",
   "message": "Iris API running"
 }
+
 ### 2. Predict a single flower
 `POST /predict`  
 
@@ -45,4 +46,5 @@ Request body:
   "petal_length": 1.4,
   "petal_width": 0.2
 }
+
 
